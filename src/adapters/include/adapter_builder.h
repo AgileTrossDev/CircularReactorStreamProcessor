@@ -15,13 +15,13 @@
 class AdapterBuilder {
   public:
 
-    typedef  AdapterInterface* (*builder_function_type)(VariantMap_T &job_request) ;
+    typedef  AdapterInterface& (*builder_function_type)(VariantMap_T &job_request) ;
 
     // ------------------------------------------------------
     // Static Functions
     // ------------------------------------------------------
     static void register_builder(std::string adapter_name, builder_function_type);
-    static void build(std::string adapter_name, VariantMap_T &job_request);
+    static AdapterInterface& build(std::string adapter_name, VariantMap_T &job_request);
     
     // ------------------------------------------------------
     // Constructor

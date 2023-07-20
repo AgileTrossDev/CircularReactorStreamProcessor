@@ -18,6 +18,7 @@ void AdapterInterface::set_active(bool new_state) {
 void AdapterInterface::start() {
 
   execution_thread = thread(&AdapterInterface::execute, this);
+  set_active(true);
 }
 
 

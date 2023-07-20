@@ -3,18 +3,16 @@
 
 #include "file_adapter.h"
 
-
 using namespace std;
 
-
-AdapterInterface* FileAdapter::FileAdapter::build(VariantMap_T &job_request) {
+AdapterInterface& FileAdapter::FileAdapter::build(VariantMap_T &job_request) {
 
   string ingest_file = get<std::string>( job_request["ingest_file"] );
    
 
   cout << "Building File Adapter class: " << ingest_file  << endl;
-  FileAdapter* adapter = new FileAdapter(ingest_file);
-  return adapter;
+  FileAdapter *instance = new FileAdapter(ingest_file);
+  return *instance;
 
 }
 
@@ -22,6 +20,8 @@ AdapterInterface* FileAdapter::FileAdapter::build(VariantMap_T &job_request) {
 FileAdapter::FileAdapter(std::string ingest_path) {
 
   file_path = ingest_path;
+
+  
 
   
   
@@ -38,8 +38,8 @@ void FileAdapter::open() {
 // implementation of the pure virtual function
 // Reads the next block of data from a file
 void FileAdapter::read() {
-
-  if (!file_stream.is_open()) {open();}
+  cout << "READING" << endl;
+  //if (!file_stream.is_open()) {open();}
 
 }         
 

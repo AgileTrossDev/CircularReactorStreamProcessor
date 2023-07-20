@@ -12,7 +12,7 @@ class FileAdapter : public AdapterInterface {
 public: 
 
   // Builder Functions
-  static AdapterInterface* build(VariantMap_T &job_request);  
+  static AdapterInterface& build(VariantMap_T &job_request);  
 
   // Constructor
   FileAdapter(std::string ingest_path);
